@@ -31,3 +31,11 @@ async def get_insult(name: str):
         "insult": insult
     }
     return data
+
+@app.get("/insult/list/adjectives")
+async def get_adj():
+    return adjectives
+
+@app.get("/insult/list/nouns")
+async def get_nouns():
+    return nouns
