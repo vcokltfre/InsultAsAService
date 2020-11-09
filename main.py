@@ -21,3 +21,13 @@ async def get_insult(name: str):
         "insult": insult
     }
     return data
+
+@app.get("/insult/randomdouble/{name}")
+async def get_insult(name: str):
+    adj, adj2, noun = choice(adjectives), choice(adjectives), choice(nouns)
+    insult = f"{name} is {get_an(adj)} {adj2} {noun}"
+    data = {
+        "status": "ok",
+        "insult": insult
+    }
+    return data
