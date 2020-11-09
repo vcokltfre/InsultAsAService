@@ -8,6 +8,12 @@ app = FastAPI()
 insults = iload("random")
 names = nload()
 nouns, adjectives = insults['nouns'], insults['adjectives']
+many_cap = 32
+
+def clamp(min: int, max: int, num: int):
+    if num > max: return max
+    if num < min: return min
+    return num
 
 def get_an(word):
     if word[0] in 'aeiou':
@@ -32,6 +38,24 @@ def get_two(name):
     }
     return data
 
+def get_one_many(name, amount: int):
+    amount = clamp(1, many_cap, amount)
+    insults = [data['insult'] for data in [get_one(name) for _ in range(amount)]]
+    data = {
+        "status": "ok",
+        "insults": insults
+    }
+    return data
+
+def get_two_many(name, amount: int):
+    amount = clamp(1, many_cap, amount)
+    insults = [data['insult'] for data in [get_two(name) for _ in range(amount)]]
+    data = {
+        "status": "ok",
+        "insults": insults
+    }
+    return data
+
 @app.get("/insult/random")
 async def get_one_insult():
     return get_one(choice(names))
@@ -39,6 +63,14 @@ async def get_one_insult():
 @app.get("/insult/randomdouble")
 async def get_two_insults():
     return get_two(choice(names))
+
+@app.get("/insult/random/{name}/{amount}")
+async def get_one_many_named(name: str, amount: int):
+    return get_one_many(name, amount)
+
+@app.get("/insult/randomdouble/{name}/{amount}")
+async def get_one_many_named(name: str, amount: int):
+    return get_two_many(name, amount)
 
 @app.get("/insult/random/{name}")
 async def get_one_insult_named(name: str):
