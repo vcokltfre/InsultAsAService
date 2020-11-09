@@ -56,6 +56,18 @@ def get_two_many(name, amount: int):
     }
     return data
 
+@app.get("/")
+async def get_main():
+    endpoints = [
+        "/insult/random",
+        "/insult/random/<name>",
+        "/insult/random/<name>/<amount>",
+        "/insult/randomdouble",
+        "/insult/randomdouble/<name>",
+        "/insult/randomdouble/<name>/<amount>"
+    ]
+    return endpoints
+
 @app.get("/insult/random")
 async def get_one_insult():
     return get_one(choice(names))
