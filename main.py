@@ -3,7 +3,7 @@ from typing import Optional
 from random import choice
 from loader import iload, nload
 
-app = FastAPI()
+app = FastAPI(docs_url=None)
 
 insults = iload("random")
 names = nload()
