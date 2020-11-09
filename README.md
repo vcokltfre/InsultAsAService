@@ -35,4 +35,4 @@ print(insult("Bob"))
 
 ### Contributing
 
-More insults are always welcome to be added to `data/random.json`, follow the format `"{0} is a/an {adjective} {noun}"` and make a pull request.
+More adjectives and nouns are always welcome to be added to `data/random.json`, just add some and make a pull request.
