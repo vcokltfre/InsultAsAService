@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+    iaas:
+        build: .
+        ports:
+            - 8008:8193
