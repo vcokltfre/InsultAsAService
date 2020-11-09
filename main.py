@@ -64,7 +64,9 @@ async def get_main():
         "/insult/random/<name>/<amount>",
         "/insult/randomdouble",
         "/insult/randomdouble/<name>",
-        "/insult/randomdouble/<name>/<amount>"
+        "/insult/randomdouble/<name>/<amount>",
+        "/insult/list/adjectives",
+        "/insult/list/nouns"
     ]
     return endpoints
 
