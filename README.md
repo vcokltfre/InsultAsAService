@@ -52,7 +52,7 @@ Return a list of insults with 2 adjectives for a name, to a maximum of 32.
 
 ### Server Setup
 
-- Rename `docker-compose.example.yml` to `docker-compose.yml`
+- Make a copy of `docker-compose.example.yml` called `docker-compose.yml`
 - Run `docker-compose up -d`
 - By default the server runs on port 8008, but this can be changed in `docker-compose.yml`
 
