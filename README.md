@@ -39,7 +39,7 @@ Return an insult for a name.
 ### `GET /insult/random/{name}/{amount}`
 Return a list of insults for a name, to a maximum of 32.
 
-### `GET /insult/randomdouble
+### `GET /insult/randomdouble`
 Return an insult with 2 adjectives for a random name.
 
 ### `GET /insult/randomdouble/{name}`
